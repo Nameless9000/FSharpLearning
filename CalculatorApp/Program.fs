@@ -40,15 +40,21 @@ module Calculator =
 
     let parse (input: string) =
         let tokens = tokenize input
+        if tokens.Length = 0 then
+            failwith "No tokens"
+
         parse_expr tokens
 
     [<EntryPoint>]
-    let main args =
-        printf "Enter the calculation: "
-        let calculation = System.Console.ReadLine()
-        let ast = parse calculation
-        let result = eval ast
+    let rec main args =
+        try
+            printf "Enter the calculation: "
+            let calculation = System.Console.ReadLine()
+            let ast = parse calculation
+            let result = eval ast
 
-        printfn "%A\n" result
+            printfn "%A\n" result
+        with
+            | ex -> printfn "Error: %A" ex
 
-        0
+        main [||]
