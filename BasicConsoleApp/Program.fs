@@ -1,12 +1,9 @@
 ﻿module ConcatenationTest =
-    let rec join (x: list<string>) (separator: string): string =
-        match x with
-        | [] -> ""
-        | head :: [] -> head
-        | head :: tail -> head + separator + join tail separator
+    let squares_to_25 =
+        [ for i in 1 .. 25 do
+            let square = i*i
+            yield sprintf "%d*%d = %d" i i square ]
 
-    let sampleTableOfSquares =
-        [ for i in 0 .. 99 -> (i, i*i) ]
-        |> List.map (fun (a, b) -> sprintf "%d*%d = %d" a a b)
-
-    printfn "%s" (join sampleTableOfSquares "\n")
+    squares_to_25
+        |> String.concat "\n"
+        |> printf "%s"
