@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasicConsoleApp", "BasicConsoleApp\BasicConsoleApp.fsproj", "{303443C9-8BC6-4EB3-8394-75C4673F914C}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CalculatorApp", "CalculatorApp\CalculatorApp.fsproj", "{303443C9-8BC6-4EB3-8394-75C4673F914C}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tutorial", "Tutorial\Tutorial.fsproj", "{4C7B53F7-EB58-4220-9F67-ED422596F553}"
 EndProject
