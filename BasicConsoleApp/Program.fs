@@ -1,10 +1,10 @@
 ﻿module IntegersAndNumbers =
-    let sampleTableOfSquares = [ for i in 0 .. 99 -> "hi: " + i.ToString() ]
+    let sampleTableOfSquares = [ for i in 0 .. 99 -> i.ToString() ]
 
-    let rec join (x: list<string>) (seperator: string): string =
-        if x.IsEmpty then
-            ""
-        else
-            x.Head + seperator + join x.Tail seperator
+    let rec join (x: list<string>) (separator: string): string =
+        match x with
+        | [] -> ""
+        | head :: [] -> head
+        | head :: tail -> head + separator + join tail separator
 
-    printfn "%s" (join sampleTableOfSquares "\n")
+    printfn "%s" (join sampleTableOfSquares ", ")
