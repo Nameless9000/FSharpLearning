@@ -55,7 +55,7 @@ module Calculator =
 
 
     let tokenize (input: string) =
-        let matches = Regex.Matches(input, "(\d+)|([+\-*/^|&]+)")
+        let matches = Regex.Matches(input, "([+-]?([0-9]*[.])?[0-9]+)|([+\-*/^|&]+)")
         [ for m in matches -> m.Value ]
 
     let parse (input: string) =
