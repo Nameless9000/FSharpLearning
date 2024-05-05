@@ -66,13 +66,13 @@ module Calculator =
     [<EntryPoint>]
     let rec main _ =
         try
-            printf "Enter the calculation: "
+            System.Console.Write "Enter the calculation: "
             let calculation = System.Console.ReadLine()
             let ast = parse calculation
             let result = eval ast
 
-            printfn "%A\n" result
+            System.Console.WriteLine (result.ToString() + "\n")
         with
-            | ex -> printfn "Error: %s\n" ex.Message
+            | ex -> System.Console.WriteLine ("Error: " + ex.Message + "\n")
 
         main [||]
