@@ -20,7 +20,7 @@ module Calculator =
         let rec inner (acc: Expr) (tokens: list<string>) =
             match tokens with
             | [] -> acc
-            | num :: tail when System.Int32.TryParse(num).Equals(true) ->
+            | num :: _ when System.Int32.TryParse(num).Equals(true) ->
                 Number(int num)
             | symbol :: tail ->
                 let op =
@@ -31,6 +31,9 @@ module Calculator =
 
                 BinaryOp(op, acc, parse_expr tail)
 
+        if tokens.Length = 0 then
+            failwith "Unexpected end of input"
+
         inner (Number(int (List.head tokens))) (List.tail tokens)
 
 
@@ -40,8 +43,6 @@ module Calculator =
 
     let parse (input: string) =
         let tokens = tokenize input
-        if tokens.Length = 0 then
-            failwith "No tokens"
 
         parse_expr tokens
 
@@ -55,6 +56,6 @@ module Calculator =
 
             printfn "%A\n" result
         with
-            | ex -> printfn "Error: %A" ex
+            | ex -> printfn "Error: %s" ex.Message
 
         main [||]
